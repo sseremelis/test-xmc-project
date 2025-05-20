@@ -3,7 +3,10 @@ import * as FEAAS from '@sitecore-feaas/clientside/react';
 
 interface ByocContentProps {
   title: string;
-  label?: string;
+  complex: {
+    label: string;
+    href: string;
+  };
 }
 
 export const ByocContent = (props: ByocContentProps): JSX.Element => {
@@ -12,7 +15,7 @@ export const ByocContent = (props: ByocContentProps): JSX.Element => {
       <h2>{props.title || 'BYOC Demo'}</h2>
       <p>ByocContent Component</p>
       <div>{props.title}</div>
-      <div>{props.label}</div>
+      <div>{props.complex?.label}</div>
     </div>
   );
 };
@@ -32,8 +35,12 @@ FEAAS.External.registerComponent(ByocContent, {
     title: {
       type: 'string',
     },
-    label: {
-      type: 'string',
+    complex: {
+      type: 'object',
+      properties: {
+        label: { type: 'string' },
+        href: { type: 'string' },
+      },
     },
   },
 });
