@@ -6,6 +6,9 @@ interface ByocContentProps {
   complex: {
     label: string;
     href: string;
+    styles: {
+      darkMode: string;
+    };
   };
 }
 
@@ -16,6 +19,7 @@ export const ByocContent = (props: ByocContentProps): JSX.Element => {
       <p>ByocContent Component</p>
       <div>{props.title}</div>
       <div>{props.complex?.label}</div>
+      <div>{props.complex?.styles?.darkMode}</div>
     </div>
   );
 };
@@ -28,6 +32,12 @@ FEAAS.External.registerComponent(ByocContent, {
       properties: {
         label: { type: 'string' },
         href: { type: 'string' },
+        styles: {
+          type: 'object',
+          properties: {
+            darkMode: { type: 'string' },
+          },
+        },
       },
     },
   },
@@ -40,6 +50,12 @@ FEAAS.External.registerComponent(ByocContent, {
       properties: {
         label: { type: 'string' },
         href: { type: 'string' },
+        styles: {
+          type: 'object',
+          properties: {
+            darkMode: { type: 'string' },
+          },
+        },
       },
     },
   },
