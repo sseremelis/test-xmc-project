@@ -15,7 +15,7 @@ export const ByocContent = (props: ByocContentProps): JSX.Element => {
       <h2>{props.title || 'BYOC Demo'}</h2>
       <p>ByocContent Component</p>
       <div>{props.title}</div>
-      <div>{props.complex.label}</div>
+      <div>{props.complex?.label}</div>
     </div>
   );
 };
