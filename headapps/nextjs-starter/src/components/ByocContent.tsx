@@ -22,10 +22,7 @@ export const ByocContent = (props: ByocContentProps): JSX.Element => {
 
 FEAAS.External.registerComponent(ByocContent, {
   name: 'ByocContent',
-  properties: {
-    title: {
-      type: 'string',
-    },
+  definitions: {
     complex: {
       type: 'object',
       properties: {
@@ -33,5 +30,11 @@ FEAAS.External.registerComponent(ByocContent, {
         href: { type: 'string' },
       },
     },
+  },
+  properties: {
+    title: {
+      type: 'string',
+    },
+    complex: { type: 'object', $ref: '#/definitions/address' },
   },
 });
